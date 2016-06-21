@@ -9,7 +9,7 @@ env:
     - CCACHE_TEMPDIR=/tmp/.ccache-temp
     - CCACHE_COMPRESS=1
     - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
-    addons:
+addons:
   apt:
     packages:
       - bc

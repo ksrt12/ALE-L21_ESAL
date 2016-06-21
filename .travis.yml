@@ -9,5 +9,8 @@ env:
     - CCACHE_TEMPDIR=/tmp/.ccache-temp
     - CCACHE_COMPRESS=1
     - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
+    addons:
+  apt:
+packages:bc
 script:
 - ./build_ale21.sh

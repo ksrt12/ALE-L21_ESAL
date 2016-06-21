@@ -11,6 +11,7 @@ env:
     - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
     addons:
   apt:
-packages:bc
+    packages:
+      - bc
 script:
 - ./build_ale21.sh

@@ -138,7 +138,8 @@ config CPU_FREQ_GOV_PERFORMANCE
 	  If in doubt, say Y.
 
 config CPU_FREQ_GOV_PMC
- tristate "'pmc' cpufreq policy governor"	   select CPU_FREQ_TABLE	
+ tristate "'pmc' cpufreq policy governor"	
+select CPU_FREQ_TABLE	
   help	
     'smartmax' tweaked for absolute battery
 

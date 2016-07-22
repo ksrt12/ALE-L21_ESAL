@@ -82,36 +82,37 @@ static unsigned int suspend_ideal_freq;
 static unsigned int awake_ideal_freq;
 /*
  * Freqeuncy delta when ramping up above the ideal freqeuncy.
-* Zero disables and causes to always jump straight to max frequency.
+ * Zero disables and causes to always jump straight to max frequency.
  * When below the ideal freqeuncy we always ramp up to the ideal freq.
-*/
+ */
 static unsigned int ramp_up_step;
 
 /*
  * Freqeuncy delta when ramping down below the ideal freqeuncy.
-* Zero disables and will calculate ramp down according to load heuristic.
-* When above the ideal freqeuncy we always ramp down to the ideal freq.
+ * Zero disables and will calculate ramp down according to load heuristic.
+ * When above the ideal freqeuncy we always ramp down to the ideal freq.
  */
 static unsigned int ramp_down_step;
+
 /*
-* CPU freq will be increased if measured load > max_cpu_load;
+ * CPU freq will be increased if measured load > max_cpu_load;
  */
 static unsigned int max_cpu_load;
 
 /*
-* CPU freq will be decreased if measured load < min_cpu_load;
+ * CPU freq will be decreased if measured load < min_cpu_load;
  */
 static unsigned int min_cpu_load;
 
 /*
  * The minimum amount of time in nsecs to spend at a frequency before we can ramp up.
-* Notice we ignore this when we are below the ideal frequency.
-*/
+ * Notice we ignore this when we are below the ideal frequency.
+ */
 static unsigned int up_rate;
 
 /*
-* The minimum amount of time in nsecs to spend at a frequency before we can ramp down.
-* Notice we ignore this when we are above the ideal frequency.
+ * The minimum amount of time in nsecs to spend at a frequency before we can ramp down.
+ * Notice we ignore this when we are above the ideal frequency.
  */
 static unsigned int down_rate;
 
@@ -126,10 +127,11 @@ static bool touch_poke = 1;
 
 /*
  * should ramp_up steps during boost be possible
-*/
+ */
 static bool ramp_up_during_boost = 1;
+
 /*
-* external boost interface - boost if duration is written
+ * external boost interface - boost if duration is written
  * to sysfs for boost_duration
  */
 static unsigned int boost_freq = true;
@@ -142,7 +144,6 @@ static unsigned int boost_duration = true;
 static unsigned int io_is_busy;
 
 static unsigned int ignore_nice;
-		
 
 #define GOVERNOR_NAME "pmc"
 #define STRUCT_NAME cpufreq_gov_pmc

@@ -15,3 +15,10 @@ addons:
       - bc
 script:
 - ./build_ale21.sh
+deploy:
+  provider: releases
+  api_key: "$GH_TOKEN"
+  file: "arch/arm64/boot/Image"
+  skip_cleanup: true
+  on:
+    tags: true

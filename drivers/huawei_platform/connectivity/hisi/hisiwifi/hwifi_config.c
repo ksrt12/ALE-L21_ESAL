@@ -11,7 +11,7 @@ extern "C" {
  * 1 Header File Including
  */
 
-#include <../hw-ini/hisi_ini.h>
+#include "../hw-ini/hisi_ini.h"
 #include <linux/mtd/hisi_nve_interface.h>
 #include <linux/etherdevice.h>
 

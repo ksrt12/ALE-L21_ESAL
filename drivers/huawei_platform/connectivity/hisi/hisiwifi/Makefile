@@ -58,25 +58,13 @@ wifi-objs +=    hwifi_dev_err.o
 wifi-objs +=    hwifi_config.o
 wifi-objs +=    hsdio_test.o
 else
-ANDROID_PRODUCT=hi6210sft
-ifeq ($(ARCH),arm64)
-ANDROID_PATH := /home/zhouxinfeng/v8/v8r2-sft-bbit
-MODULE_PARAM := ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-else
-ANDROID_PATH := /home/zhouxinfeng/v8/v8r1/EMUI_LOCAL_1101
-MODULE_PARAM := ARCH=arm CROSS_COMPILE=arm-eabi-
-endif
-
-KERNEL_DIR := $(ANDROID_PATH)/out/target/product/$(ANDROID_PRODUCT)/obj/KERNEL_OBJ
-CROSS_DIR := $(ANDROID_PATH)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin:$(ANDROID_PATH)/prebuilts/gcc/linux-x86/arm/gcc-linaro-aarch64-linux-gnu-4.8/bin
-PATH := $(CROSS_DIR):$(PATH)
 
 default:
-	$(MAKE) -C $(KERNEL_DIR) $(MODULE_PARAM)  M=$(shell pwd) modules
+	$(MAKE) M=$(shell pwd) modules
 endif
 
 clean:
-	$(MAKE) -C $(KERNEL_DIR) M=$(shell pwd) clean
+	$(MAKE) -C  M=$(shell pwd) clean
 
 install:default
 	adb push wifi.ko /data/

@@ -111,11 +111,6 @@ static int mali_os_suspend(struct device *device)
 
     MALI_DEBUG_PRINT(3, ("mali_os_suspend() called\n"));
 
-#ifdef CONFIG_PM_RUNTIME
-    MALI_DEBUG_PRINT(3, ("mali_os_suspend() pm_runtime_get_sync called\n"));
-    pm_runtime_get_sync(device);
-#endif
-
     if (NULL != device->driver &&
         NULL != device->driver->pm &&
         NULL != device->driver->pm->suspend)
@@ -164,9 +159,6 @@ static int mali_os_resume(struct device *device)
     }
 
 #ifdef CONFIG_PM_RUNTIME
-    MALI_DEBUG_PRINT(3, ("mali_os_resume() enable pm_runtime_put_autosuspend\n"));
-    pm_runtime_put_autosuspend(device);
-
     MALI_DEBUG_PRINT(3, ("mali_os_resume() enable pm_runtime\n"));
     pm_runtime_disable(device);
     pm_runtime_set_active(device);

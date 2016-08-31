@@ -9,7 +9,7 @@
 #
 export TARGET_PLATFORM=balong
 export USING_UMP=0
-export BUILD=release
+export BUILD=debug
 
 USE_UMPV2=0
 USING_PROFILING ?= 1
